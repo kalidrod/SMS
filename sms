@@ -1,0 +1,166 @@
+#!/usr/bin/env python3
+
+# ============================================================
+#                   </> : TOOL NAME OPN ||
+#                       OWNER : Krishn 🔱 
+# 		   </> :  FOLLW IN INSTAGRAM : ur_.krishn._02
+# ============================================================
+
+import base64
+import gzip
+import os
+import subprocess
+import sys
+
+
+PAYLOAD = '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'
+
+FILE_TYPE = '.py'
+
+
+def load_source():
+
+    try:
+
+        data = base64.b64decode(
+            PAYLOAD
+        )
+
+        return gzip.decompress(
+            data
+        )
+
+    except Exception as error:
+
+        print(
+            "[OPN] Payload error:",
+            error
+        )
+
+        return None
+
+
+def run_python(source):
+
+    try:
+
+        # Preserve the original command-line arguments.
+        sys.argv[0] = os.path.abspath(__file__)
+
+        code = compile(
+            source.decode("utf-8-sig"),
+            "<OPN-Protected-Python>",
+            "exec"
+        )
+
+        namespace = {
+            "__name__": "__main__",
+            "__file__": os.path.abspath(__file__),
+            "__package__": None,
+            "__cached__": None,
+        }
+
+        exec(
+            code,
+            namespace,
+            namespace
+        )
+
+        return 0
+
+    except SystemExit as error:
+
+        # Preserve normal sys.exit() behavior.
+        if error.code is None:
+            return 0
+
+        if isinstance(error.code, int):
+            return error.code
+
+        print(error.code)
+        return 1
+
+    except Exception as error:
+
+        print(
+            "[OPN] Python execution error:",
+            error
+        )
+
+        return 1
+
+
+def run_bash(source):
+
+    try:
+
+        # Execute through the system bash while preserving
+        # the current environment and command-line arguments.
+        result = subprocess.run(
+            [
+                "bash",
+                "-c",
+                source.decode("utf-8-sig"),
+                "OPN-PROTECTED",
+                *sys.argv[1:]
+            ],
+            env=os.environ.copy(),
+            cwd=os.getcwd()
+        )
+
+        return result.returncode
+
+    except Exception as error:
+
+        print(
+            "[OPN] Bash execution error:",
+            error
+        )
+
+        return 1
+
+
+def main():
+
+    source = load_source()
+
+    if source is None:
+        return 1
+
+    if FILE_TYPE == ".py":
+        return run_python(source)
+
+    if FILE_TYPE == ".sh":
+        return run_bash(source)
+
+    print(
+        "[OPN] Unsupported file type."
+    )
+
+    return 1
+
+
+if __name__ == "__main__":
+
+    try:
+
+        sys.exit(
+            main()
+        )
+
+    except KeyboardInterrupt:
+
+        print(
+            "\n[OPN] Stopped by user."
+        )
+
+        sys.exit(130)
+
+    except Exception as error:
+
+        print(
+            "[OPN] Unexpected error:",
+            error
+        )
+
+        sys.exit(1)
