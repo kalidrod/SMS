@@ -56,5 +56,6 @@ chmod +x sms.py
 **5. Start 🚀**
 ```
 python3 sms.py
-
+```
+>[BOMDER]
 ## **By Krishn 🔱**
