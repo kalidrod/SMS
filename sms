@@ -16,14 +16,14 @@ from datetime import datetime
 
 current_time = datetime.now().strftime("%H:%M:%S")
 
-print(f"\033[38;5;214m[{current_time}]\033[0m \033[1;32m[INFO]:\033[0m BY ONXX OPEN")
+print(f"\033[38;5;214m[{current_time}]\033[0m \033[1;32m[INFO]:\033[0m BY Kalidrod")
 
 try:
     subprocess.run([
         "am",
         "start",
         "-a", "android.intent.action.VIEW",
-        "-d", "https://www.instagram.com/__.l2l__",
+        "-d", "https://www.instagram.com/ur_.krishn._02",
         "com.android.chrome"
     ], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, check=True)
 
