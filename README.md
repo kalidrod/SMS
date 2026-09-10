@@ -2,6 +2,8 @@
 
 <img src="assets/Krishn.png" alt="SMS" width="250">
 
+**BY </> KRISHN 🔱**
+
 **A High-Performance SMS Bombing Tool for Educational Testing**
 
 [![Python](https://img.shields.io/badge/Language-Python-yellow?style=for-the-badge&logo=python)](https://www.python.org/)
