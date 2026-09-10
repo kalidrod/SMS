@@ -51,11 +51,11 @@ pip install -r requirements.txt
 
 **4. Set Permissions**
 ```bash
-chmod +x sms.py
+chmod +x ./sms
 ```
 **5. Start 🚀**
 ```
-python3 sms.py
+./sms
 ```
 >[BOMDER]
 ## **By Krishn 🔱**
